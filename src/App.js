@@ -65,10 +65,10 @@ export default function App() {
           {isAdmin ? (
             NAV_ADMIN.map(item => (
               <button
-                key={item.id}
-                className={`nav-item ${pagina === item.id ? 'active' : ''}`}
-                onClick={() => setPagina(item.id)}
-              >
+  key={item.id}
+  className={`nav-item ${pagina === item.id ? 'active' : ''}`}
+  onClick={() => item.id === 'salir' ? signOut() : setPagina(item.id)}
+>
                 <span className="icon">{item.icon}</span>
                 <span>{item.label}</span>
               </button>
