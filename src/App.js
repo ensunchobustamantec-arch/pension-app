@@ -73,11 +73,17 @@ export default function App() {
                 <span>{item.label}</span>
               </button>
             ))
-          ) : (
-            <div className="nav-item active">
-              <span className="icon">🏠</span>
-              <span>Mi Panel</span>
-            </div>
+       ) : (
+            <>
+              <div className="nav-item active">
+                <span className="icon">🏠</span>
+                <span>Mi Panel</span>
+              </div>
+              <button className="nav-item" onClick={signOut}>
+                <span className="icon">↪️</span>
+                <span>Salir</span>
+              </button>
+            </>
           )}
         </nav>
 
