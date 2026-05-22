@@ -9,6 +9,7 @@ import Aseo from './pages/Aseo'
 import Alertas from './pages/Alertas'
 import EstudianteDashboard from './pages/EstudianteDashboard'
 import InstallBanner from './InstallBanner'
+import { pedirPermisoNotificaciones } from './useNotifications'
 
 const NAV_ADMIN = [
   { id: 'dashboard', label: 'Panel General', icon: '🏠' },
@@ -24,6 +25,9 @@ export default function App() {
   const { user, profile, loading, signOut } = useAuth()
   const [pagina, setPagina] = useState('dashboard')
 
+ useEffect(() => {
+    if (user) pedirPermisoNotificaciones()
+  }, [user])
   if (loading) {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)' }}>
