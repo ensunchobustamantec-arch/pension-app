@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
+import { enviarNotificacion } from '../useNotifications'
 
 export default function EstudianteDashboard() {
   const { profile } = useAuth()
@@ -24,7 +25,13 @@ export default function EstudianteDashboard() {
       const { data: aseo } = await supabase.from('aseo').select('*').eq('estudiante_id', est.id).eq('activo', true)
       setData({ ...est, aseo: aseo || [] })
     }
-    setAlertas(als || [])
+    if (als) {
+      const nuevas = als.filter(a => !a.leida)
+      if (nuevas.length > 0) {
+        enviarNotificacion(nuevas[0].titulo, nuevas[0].mensaje, nuevas[0].tipo)
+      }
+      setAlertas(als)
+    }
     setLoading(false)
   }
 
