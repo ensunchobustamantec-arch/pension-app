@@ -1,11 +1,8 @@
 {
-  "routes": [
-    { "src": "/favicon.png", "dest": "/favicon.png" },
-    { "src": "/logo192.png", "dest": "/logo192.png" },
-    { "src": "/logo512.png", "dest": "/logo512.png" },
-    { "src": "/manifest.json", "dest": "/manifest.json" },
-    { "src": "/apple-touch-icon.png", "dest": "/apple-touch-icon.png" },
-    { "src": "/logo_ensuncho.svg", "dest": "/logo_ensuncho.svg" },
-    { "src": "/(.*)", "dest": "/" }
+  "rewrites": [
+    {
+      "source": "/((?!favicon\\.png|logo192\\.png|logo512\\.png|logo_ensuncho\\.svg|manifest\\.json|apple-touch-icon\\.png).*)",
+      "destination": "/"
+    }
   ]
 }
