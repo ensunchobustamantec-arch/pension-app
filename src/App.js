@@ -8,6 +8,7 @@ import Pagos from './pages/Pagos'
 import Aseo from './pages/Aseo'
 import Alertas from './pages/Alertas'
 import EstudianteDashboard from './pages/EstudianteDashboard'
+import InstallBanner from './InstallBanner'
 
 const NAV_ADMIN = [
   { id: 'dashboard', label: 'Panel General', icon: '🏠' },
@@ -102,6 +103,7 @@ export default function App() {
       <main className="main-content">
         {renderPagina()}
       </main>
+     <InstallBanner />
     </div>
   )
 }
