@@ -1,0 +1,15 @@
+{
+  "name": "Pensión Ensuncho",
+  "short_name": "Ensuncho",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B4332",
+  "theme_color": "#1B4332",
+  "icons": [
+    {
+      "src": "/logo_ensuncho.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
