@@ -16,6 +16,7 @@ const NAV_ADMIN = [
   { id: 'pagos', label: 'Pagos', icon: '💳' },
   { id: 'aseo', label: 'Aseo', icon: '🧹' },
   { id: 'alertas', label: 'Alertas', icon: '🔔' },
+  { id: 'salir', label: 'Salir', icon: '↪️' },
 ]
 
 export default function App() {
