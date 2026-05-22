@@ -16,7 +16,7 @@ export default function EstudianteDashboard() {
 
   async function load() {
     const [{ data: est }, { data: als }] = await Promise.all([
-      supabase.from('estudiantes').select('*, habitaciones(numero, tipo, descripcion), pagos(*)').eq('user_id', profile.id).eq('activo', true).single(),
+      supabase.from('estudiantes').select('*, habitaciones(numero, tipo, descripcion), pagos(*)').eq('user_id', profile.id).eq('activo', true).maybeSingle(),
       supabase.from('alertas').select('*').eq('destinatario_id', profile.id).order('created_at', { ascending: false }).limit(10)
     ])
 
