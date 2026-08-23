@@ -35,20 +35,19 @@ export function AuthProvider({ children }) {
     return { data, error }
   }
 
-  async function signUp(email, password, nombre, telefono) {
-    const { data, error } = await supabase.auth.signUp({ email, password })
-    if (!error && data.user) {
-      await supabase.from('profiles').insert({
-        id: data.user.id,
-        nombre,
-        email,
-        telefono,
-        rol: 'estudiante'
-      })
-    }
-    return { data, error }
+ async function signUp(email, password, nombre, telefono) {
+  const { data, error } = await supabase.auth.signUp({ email, password })
+  if (!error && data.user) {
+    await supabase.from('profiles').upsert({
+      id: data.user.id,
+      nombre,
+      email,
+      telefono,
+      rol: 'estudiante'
+    })
   }
-
+  return { data, error }
+}
   async function signOut() {
     await supabase.auth.signOut()
   }
